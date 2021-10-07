@@ -120,7 +120,7 @@ class UsuarioControlador
 			var_dump($datos);
 			$respuesta = UsuariosModel::actualizarUsuarioModel($datos);
 
-			if ($respuesta = "success") {
+			if ($respuesta == "success") {
 				header('location:change');
 			}
 		}

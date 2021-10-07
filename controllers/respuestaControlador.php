@@ -22,14 +22,18 @@ class RespuestaControlador {
 		return $respuestas;
 	}
 
+	function consultarRespuestaControlador1(){
+		$consultarRes = new RespuestaModelo();
+		$respuestas = $consultarRes->consultarRespuestaModelo1();
+		return $respuestas;
+	}
+
 	function eliminarRespuestaControlador(){
 		if (isset($_GET['del'])) {
 			$dato = $_GET['del'];
 			$eliminar = new RespuestaModelo();
 			$respuesta = $eliminar-> eliminarRespuestaModelo($dato);
-			if ($respuesta == "success") {
-				header('location:delRes');
-			}
+			print $respuesta;
 		}
 	}
 

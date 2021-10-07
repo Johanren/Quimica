@@ -53,6 +53,19 @@ class RespuestaModelo extends Conexion {
 		}
 	}
 
+	function consultarRespuestaModelo1(){
+		$sql = "SELECT * FROM $this->tabla WHERE 1";
+		try {
+			$conn = new Conexion();
+			$stmt = $conn->conectar()->prepare($sql);
+			$stmt->execute();
+			return $stmt->fetchAll();
+			$stmt->close();
+		} catch (Exception $e) {
+			
+		}
+	}
+
 	function eliminarRespuestaModelo($dato){
 		$sql = "DELETE FROM $this->tabla WHERE idPreguntas = ?";
 		try {

@@ -46,8 +46,10 @@ class PreguntaControlador {
 			$eliminar = new PreguntaModelo();
 			$respuesta = $eliminar->eliminarPreguntaModel($dato);
 			print $respuesta;
-			if ($respuesta == "success") {
+			if ($respuesta = "success") {
 				header('location:delPeg');
+			}else{
+				print "NO eliminar";
 			}
 		}
 		

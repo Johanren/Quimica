@@ -89,4 +89,21 @@ class ResultadosActividadModelo extends Conexion {
 			print_r("ocurrio un error");
 		}
 	}
+
+	function eliminarNotaModelo($dato){
+		$sql = "DELETE FROM $this->tabla WHERE idRespuesta = ?";
+		try {
+			$conn = new Conexion();
+			$stmt = $conn->conectar()->prepare($sql);
+			$stmt->bindParam(1, $dato, PDO::PARAM_INT);
+			if ($stmt->execute()) {
+				return "success";
+			}else{
+				return "error";
+			}
+			$stmt->close();
+		} catch (Exception $e) {
+			
+		}
+	}
 }

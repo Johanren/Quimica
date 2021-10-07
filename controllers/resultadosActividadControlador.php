@@ -54,6 +54,15 @@ class ResultadosActividadControlador {
 			return $persona;
 		}
 	}
+
+	function eliminarNotasControlador(){
+		if (isset($_GET['del'])) {
+			$dato = $_GET['del'];
+			#$eliminar = new ResultadosActividadModelo();
+			#$respuesta = $eliminar-> eliminarNotaModelo($dato);
+			print $dato;
+		}
+	}
 }
 
 ?>

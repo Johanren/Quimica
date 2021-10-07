@@ -16,6 +16,8 @@ class NotasControlador
 			print_r($nota);
 		}
 	}
+
+	
 }
 
 ?>
