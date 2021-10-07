@@ -44,12 +44,13 @@ class RespuestaControlador {
 				$actuRes = $_POST['editarRes'][$key];
 				$actuVerda = $_POST['respuesta'][$key];
 				$actuMulti = $_POST['mul'][$key];
-				if ($actuVerda != null) {
+				if ($actu != null) {
 					$actualizar = new RespuestaModelo();
 					$respuestas = $actualizar->ActualizarRespuestasModelo($actu, $actuRes, $actuVerda, $actuMulti);
 					if ($respuestas == "success") {
 						header('location:oksacac');
 					}
+
 				}
 
 			}

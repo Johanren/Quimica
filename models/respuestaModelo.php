@@ -85,6 +85,7 @@ class RespuestaModelo extends Conexion {
 
 	function ActualizarRespuestasModelo($id, $respuesta, $verdadero, $multiple){
 		$sql = "UPDATE $this->tabla SET descripcionRespuesta=?, resultado=?, resultadoMultiple=? WHERE idRespuestas=?";
+		var_dump($id);
 		try {
 			$conn = new Conexion();
 			$stmt = $conn->conectar()->prepare($sql);
