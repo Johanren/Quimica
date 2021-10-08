@@ -89,7 +89,7 @@ class PerfilControlador
 				$respuesta = $actPerfil-> actualizarPerfilModel($datos, 'personas');
 
 				if ($respuesta == "success") {
-					header('location:chang');
+					header('location:perfil');
 				} else {
 					print "Error";
 				}

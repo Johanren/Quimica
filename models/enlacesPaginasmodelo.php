@@ -55,7 +55,7 @@ class EnlacesPaginasModelo{
 	elseif ($enlace == 'del' || 'oksacac') {
 		$modulo = 'views/modules/conPreguntas.php';
 	}
-	elseif ($enlace == 'rolokss') {
+	elseif ($enlace == 'rolokss' ||  "oksRolLogin") {
 		$modulo = 'views/modules/usuario.php';
 	}
 	elseif ($enlace == 'gradook') {
@@ -64,7 +64,7 @@ class EnlacesPaginasModelo{
 	elseif ($enlace == 'gradosok') {
 		$modulo = 'views/modules/personasGrado.php';
 	}
-	elseif ($enlace == 'change') {
+	elseif ($enlace = 'change') {
 		$modulo = 'views/modules/usuario.php';
 	}
 	elseif ($enlace == 'chang') {

@@ -19,6 +19,12 @@ if (isset($_GET['action'])) {
 		<span aria-hidden="true">&times;</span>
 		</button></p>';
 	}
+
+	if ($_GET['action'] ==  "oksRolLogin") {
+		print '<p class="alert alert-success" role="alert">Rol Eliminado<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+		</button></p>';
+	}
 }
 ?>
 <?php
@@ -44,6 +50,9 @@ if ($_SESSION['Roles'] != "Administrador") {
 
 ?>
 <?php  
+$controladorRol = new LoginControlador();
+$controladorRol->eliminarUsuarioRolControlador();
+
 $ctrl = new UsuarioControlador();
 $ctrl1 = $ctrl->listarRolesControlador();
 $ctrl2 = $ctrl->listarPersonasControlador();
@@ -143,7 +152,7 @@ $ctrl->eliminarUsuarioControlador();
 					<th scope="col">fechaNacimeinto</th>
 					<th scope="col">Rol</th>
 					<th scope="col">Editar</th>
-					<th scope="col">Eliminar</th>
+					<!--<th scope="col">Eliminar</th>-->
 				</thead>
 				<tbody>
 					<?php
@@ -160,9 +169,9 @@ $ctrl->eliminarUsuarioControlador();
 						<td><a href="index.php?action=editarRol&id=' . $value['idPersonas'] . '"><button class="btn btn-primary mb-2"><img src="https://image.flaticon.com/icons/png/128/1160/1160758.png" width="20"></button>
 						</a>
 						</td>
-						<td><a href="index.php?action=usuario&del=' . $value['idPersonas'] . '"><button class="btn btn-primary mb-2"><img src="https://image.flaticon.com/icons/png/128/3496/3496416.png" width="20"></button>
+						<!--<td><a href="index.php?action=usuario&delrol=' . $value['idPersonas'] . '"><button class="btn btn-primary mb-2"><img src="https://image.flaticon.com/icons/png/128/3496/3496416.png" width="20"></button>
 						</a>
-						</td>
+						</td>-->
 						</tr>
 						';
 					}
@@ -192,7 +201,7 @@ $ctrl->eliminarUsuarioControlador();
 				<th>Numero-Documento</th>
 				<th>FechaNacimiento</th>
 				<th>Editar</th>
-				<th>Eliminar</th>
+				<!--<th>Eliminar</th>-->
 			</thead>
 			<tbody>
 

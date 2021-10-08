@@ -46,6 +46,19 @@ class LoginModelo extends Conexion{
 		$stmt->close();
 	}
 
+	function eliminarUsuarioRolModelo($id){
+		$sql = "DELETE FROM $this->tabla WHERE idPersonas = ?";
+		try {
+			$conn = new Conexion();
+			$stmt = $conn->conectar()->prepare($sql);
+			$stmt->bindParam(1, $id, PDO::PARAM_INT);
+			return $stmt->execute();
+			$stmt->close();
+		} catch (Exception $e) {
+			
+		}
+	}
+
 	function actualizarRolModelo($datosEditar){
 		$sql = "UPDATE $this->tabla SET email=?,password=? WHERE idPersonas=?";
 		try {

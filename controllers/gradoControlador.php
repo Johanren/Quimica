@@ -34,7 +34,7 @@ class GradoControlador
 			$respuesta = $gradoRegPer->registrarPersonasGradoModelo($datos, 'personasgrado');
 			//print $respuesta;
 			if ($respuesta == 'success') {
-				header('location:gradosok');
+				header('location:personasGrado');
 			}else{
 				print '<p class="alert alert-success" role="alert"Persona No registrado<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				<span aria-hidden="true">&times;</span>

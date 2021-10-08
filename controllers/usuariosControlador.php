@@ -56,7 +56,8 @@ class UsuarioControlador
 	
 	public function listarUsuarioControlador()
 	{
-		$respuesta = UsuariosModel::listarUsuariosModel('personas');
+		$modelo = new UsuariosModel();
+		$respuesta = $modelo->listarUsuariosModel('personas');
 		//var_dump($respuesta);
 		foreach ($respuesta as $row => $valor) {
 			print "
@@ -69,21 +70,23 @@ class UsuarioControlador
 			<td><a href='index.php?action=editar&id={$valor['idPersonas']}'><button class='btn btn-primary mb-2'><img src='https://image.flaticon.com/icons/png/128/1160/1160758.png' width='20'></button>
 			</a>
 			</td>
-			<td><a href='index.php?action=usuario&del={$valor['idPersonas']}'><button class='btn btn-primary mb-2'><img src='https://image.flaticon.com/icons/png/128/3496/3496416.png' width='20'></button>
+			<!--<td><a href='index.php?action=usuario&del={$valor['idPersonas']}'><button class='btn btn-primary mb-2'><img src='https://image.flaticon.com/icons/png/128/3496/3496416.png' width='20'></button>
 			</a>
-			</td>
+			</td>-->
 			</tr>"
 			;
 		}
 	}
 
 	public function listarRolesControlador(){
-		$respuesta = UsuariosModel::listarRolesModel('rol');
+		$modelo = new UsuariosModel();
+		$respuesta = $modelo->listarRolesModel('rol');
 		//print_r ($respuesta);
 		return $respuesta;
 	}
 	public function listarPersonasControlador(){
-		$respuesta = UsuariosModel::listarUsuariosModel('personas');
+		$modelo = new UsuariosModel();
+		$respuesta = $modelo->listarUsuariosModel('personas');
 		return $respuesta;
 		//print_r($respuesta);
 	}
@@ -117,12 +120,13 @@ class UsuarioControlador
 				'n_d' => $_POST['n_dEditar'],
 				'fN' => $_POST['fNEditar']
 			);
-			var_dump($datos);
-			$respuesta = UsuariosModel::actualizarUsuarioModel($datos);
+			//var_dump($datos);
+			$modelo = new UsuariosModel();
+			$respuesta = $modelo ->actualizarUsuarioModel($datos);
 
-			if ($respuesta == "success") {
+			/*if ($respuesta == "success") {
 				header('location:change');
-			}
+			}*/
 		}
 	}
 
@@ -132,14 +136,15 @@ class UsuarioControlador
 	{
 		if (isset($_GET['del'])) {
 			$dato = $_GET['del'];
-			$respuesta = UsuariosModel::eliminarUsuarioModel($dato, 'personas');
-
-			if ($respuesta == "success") {
+			$modelo = new UsuariosModel();
+			$respuesta = $modelo->eliminarUsuarioModel($dato, 'personas');
+			print $respuesta;
+			/*if ($respuesta = "success") {
 				print '<p class="alert alert-success" role="alert">Usuario Eliminado <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 				</button></p>';
 				//header('location:usuario');
-			}
+			}*/
 		}
 	}
 
