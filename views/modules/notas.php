@@ -18,7 +18,7 @@ $notas = $nota -> listarResultado();
 				</div>
 			</div>
 			<?php
-			$resultado = $nota->BuscarFechaActividad();
+			$resultado = $nota->BuscarFechaActividadPersonal();
 
 			?>
 		</form>

@@ -40,6 +40,32 @@ class ResultadosActividadControlador {
 
 	public function BuscarFechaActividad(){
 		if(isset($_POST['buscar'])){
+			if (isset($_GET['id'])) {
+				$idEstudiante = $_GET['id'];
+				switch($_POST['camBuscar']){
+					case 'fechaPresentacion':
+					$campo = "fechaPresentacion";
+					break;
+					default:
+					$campo = "";
+					break;
+				}
+				if(isset($_POST['campbuscar'])){
+					$dato = $_POST['campbuscar'];
+				}else{
+					$dato = "";
+				}
+				$estudiante = new ResultadosActividadModelo();
+				$persona = $estudiante-> BuscarFechaActividadModelo($campo, $dato, $idEstudiante);
+				return $persona;
+			}
+		}
+	}
+
+	function BuscarFechaActividadPersonal(){
+		if(isset($_POST['buscar'])){
+			$_SESSION['idPersonas'];
+			$idEstudiante = $_SESSION['idPersonas'];
 			switch($_POST['camBuscar']){
 				case 'fechaPresentacion':
 				$campo = "fechaPresentacion";
@@ -54,7 +80,7 @@ class ResultadosActividadControlador {
 				$dato = "";
 			}
 			$estudiante = new ResultadosActividadModelo();
-			$persona = $estudiante-> BuscarFechaActividadModelo($campo, $dato);
+			$persona = $estudiante-> BuscarFechaActividadPersonaModelo($campo, $dato, $idEstudiante);
 			return $persona;
 		}
 	}

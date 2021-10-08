@@ -63,7 +63,7 @@ class ResultadosActividadModelo extends Conexion {
 		}
 	}
 
-	public function BuscarFechaActividadModelo($campo, $dato){
+	public function BuscarFechaActividadModelo($campo, $dato, $id){
 		switch ($campo) {
 			case 'fechaPresentacion':
 				$cond = "fechaPresentacion like ?";
@@ -73,7 +73,34 @@ class ResultadosActividadModelo extends Conexion {
 				$cond = 1;
 				break;
 		}
-		$sql = "SELECT * FROM `view_resultado_actividad` WHERE $cond";
+		$sql = "SELECT * FROM `view_resultado_actividad` WHERE $cond AND idPersona = $id";
+		//print $sql;
+		try {
+			$stmt = Conexion::conectar()->prepare($sql);
+			$stmt -> bindParam(1,$dato, PDO::PARAM_STR);
+			if($stmt->execute()){
+				return $stmt -> fetchAll();
+			}
+			else{
+				return [];
+			}
+			$stmt -> close();
+		} catch (\Throwable $th) {
+			print_r("ocurrio un error");
+		}
+	}
+
+	public function BuscarFechaActividadPersonaModelo($campo, $dato, $id){
+		switch ($campo) {
+			case 'fechaPresentacion':
+				$cond = "fechaPresentacion like ?";
+				$dato .= '%';
+				break;
+			default:
+				$cond = 1;
+				break;
+		}
+		$sql = "SELECT * FROM `view_resultado_actividad` WHERE $cond AND idPersona = $id";
 		//print $sql;
 		try {
 			$stmt = Conexion::conectar()->prepare($sql);
