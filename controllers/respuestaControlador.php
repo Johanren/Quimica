@@ -13,7 +13,10 @@ class RespuestaControlador {
 
 	public function insertarRespuestaControlador($datosRespuesta){
 		$respuestaModelo = new RespuestaModelo();
-		$respuestaModelo->insertarRespuestasModelo($datosRespuesta);
+		$respuesta = $respuestaModelo->insertarRespuestasModelo($datosRespuesta);
+		if ($respuesta) {
+			header('location:actividadVista');
+		}
 	}
 
 	function consultarRespuestaControlador($id){

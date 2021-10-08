@@ -99,7 +99,7 @@ $idPersona = $_SESSION['idPersonas'];
 
           ?>
           <div class="form-group">
-            <button type="submit" name="regResultadoActividad" class="btn.btn-primary" >Enviar Actividad</button>
+            <button type="submit" name="regResultadoActividad" class="btn btn-primary mt-2" >Enviar Actividad</button>
           </div>
         </form>
 

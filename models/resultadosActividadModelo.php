@@ -12,7 +12,7 @@ class ResultadosActividadModelo extends Conexion {
 
 		foreach ($datosRespuesta as $key => $value) {
 			$this->valoresInsertar .= '(?,?),';
-			print "<br>El valor en el modelo es ".$value;
+			//print "<br>El valor en el modelo es ".$value;
 		}
 
 		$this->valoresInsertar = substr($this->valoresInsertar, 0, -1);

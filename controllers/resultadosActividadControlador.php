@@ -11,12 +11,16 @@ class ResultadosActividadControlador {
 			$resultado = $resultadoActividadModelo->registrarResultadoActividadModelo($_POST['idPregunta']);
 
 			if ($resultado) {
-				header('location:index.php?action=ok1');
+				print '<p class="alert alert-success" role="alert"><a href="notas">Actividad Realizada Correctamente</a><button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button></p>';
 			}
 			else{
-				header('location:index.php?action=fa1');	
+				print '<p class="alert alert-success" role="alert">Actividad No Realizadas Correctamente<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button></p>';	
 			}
-		
+
 		}
 	}
 
